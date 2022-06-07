@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saptashrungi Agro</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/static/css/new.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+
+   
+</head>
+<body>
+    
+<!-- home section starts  -->
+<section class="home"></section>
+<div id="carouselExampleCaptions" class="carousel slide car" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/static/img/g2.webp" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-weight: bolder;">SAPTASHRUNGI AGRO</h5>
+          <p style=" font-weight: 900;">STATE-OF-THE-ART MANUFACTURING UNIT</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/static/img/g6.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-weight: 800;">Shaktiman Rotavator</h5>
+          <p>All varity of Rotavators available</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/static/img/g4.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+    
+</section>
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>features</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class='fas fa-handshake' style='font-size:46px; color: var(--orange);'></i>
+            
+            <h3>Quality Products</h3>
+            <p>Manufatured by the best in class trained Workers.</p>
+            
+        </div>
+
+        <div class="box">
+            <div class="fas fa-user" id="login-bt" style="font-size: 46px; color:var(--orange);" ></div>
+            <h3>Shaktiman Dealer</h3>
+            <p>Authorized Shaktiman Rotavetor Dealer in Sinnar Sub-Distric with all types of Shaktiman Products </p>
+            
+        </div>
+
+        <div class="box">
+            <div class="fas fa-cog" id="login-bt" style="font-size: 46px; color:var(--orange);" ></div>
+            <h3>Quality Material</h3>
+            <p>Best Quality Steel and other material use for production</p>
+            
+        </div>
+
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+<div id="google_translate_element" style="display: block;"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- products section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> our <span>products</span> </h1>
+    
+    <div class="swiper product-slider">
+        
+        <div class="swiper-wrapper">
+            {% for q in products %}
+            <div class="swiper-slide box">
+                <img src="/media/{{q.image}}" alt="">
+                <h3>{{q.title}}</h3>
+                <div class="price"> Rs: {{q.price}} </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="/blog/{{q.url}}" class="bt">Know More</a>
+            </div>
+            {% endfor %}
+
+        </div>
+       
+    </div>
+    
+    
+   
+
+</section>
+
+<!-- products section ends -->
+
+<!-- categories section starts  -->
+
+<section class="categories" id="categories">
+
+    <h1 class="heading"> product <span>categories</span> </h1>
+    
+    
+    <div class="box-container box">
+        {% for cat in cats %}
+        <div class="box">
+            
+            <img src="/media/{{cat.image}}" alt="" style="width: 22rem;">
+            <h3>{{cat.title}}</h3>
+            <p>Different Varities and Spcifications available..</p>
+            <a href="/Category/{{cat.url}}" class="bt">shop now</a>
+           
+        </div>
+        {% endfor %}
+       
+
+    </div>
+    
+
+</section>
+
+
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+    <div class="box-container">
+
+        {% for q in products %}
+        <div class="box">
+            <img src="/media/{{q.image}}" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-user"></i> By Admin </a>
+                   
+                </div>
+                <h3>{{q.title}}</h3>
+                <p>{{q.cat}}.</p>
+                <a href="/blog/{{q.url}}" class="bt">read more</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="static/js/new.js"></script>
+
+</body>
+</html>
+
+{% endblock content %}

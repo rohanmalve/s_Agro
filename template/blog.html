@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/new.css">
+    <link rel="stylesheet" href="/static/css/swiper-bundle-min.css">
+     <!-- js files -->
+     <script src="/static/js/swiper-bundle.min.js"></script>
+     <script src="/static/js/new.js"></script>
+ 
+     <style>
+            .blogs .box-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+                gap: 1.5rem;
+                margin-top: 10px;
+                }
+     </style>
+</head>
+
+<body>
+<div class="container blg">
+    
+    <section class="blogs" id="blogs" style="margin-top: 70px;">
+        <div class="head">
+            <h1 class="heading"> our <span>Blogs</span> </h1>
+        </div>
+        
+        <div class="box-container">
+            
+            {% for p in posts %}
+            <div class="box">
+                <img src="/media/{{p.image}}" alt="">
+                <div class="content">
+                    <h3>{{p.title}}</h3>
+                    <a href="/blog/{{p.url}}" class="bt">read more</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <section aria-label="Page navigation example" class="pagination" style="margin-top: 25px;">
+            <center><ul class="pagination justify-content-center">
+                {% if posts.has_previous%}
+                <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="/?page=1">1</a></li>
+                {% endif%}
+                {% if posts.has_next%}
+                <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+                {% endif%}
+            </ul></center>
+        </section>
+    </section>
+</div>
+</body>
+
+</html>
+{% endblock content %}

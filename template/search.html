@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/new.css">
+    <link rel="stylesheet" href="/static/css/swiper-bundle-min.css">
+     <!-- js files -->
+     <script src="/static/js/swiper-bundle.min.js"></script>
+     <script src="/static/js/new.js"></script>
+ 
+</head>
+
+<body>
+
+<div class="container  my-2" style="padding:35px; margin-top: 50px;">
+    <div class="head">
+        <h1 class="heading"> Search <span>Results {{params.query}}</span> </h1>
+    </div>
+    <section class="blogs" id="blogs">
+        <div class="box-container">
+            {% if allposts|length < 1 %}
+            <p>No Search Results</p>
+            Your Search =<b>{{query}}</b> -did not match any documents.
+            Suggestions:
+            Try differnt keywords 
+            {% endif %}
+            <!-- <h3>Search Results:</h3> -->
+            {% for p in allposts %}
+            <div class="box">
+                <img src="/media/{{p.image}}" alt="">
+                <div class="content">
+                    <h3>{{p.title}}</h3>
+                    <a href="/blog/{{p.url}}" class="bt">read more</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <section aria-label="Page navigation example" class="pagination" style="margin-top: 25px;">
+            <center><ul class="pagination justify-content-center">
+                {% if posts.has_previous%}
+                <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="/?page=1">1</a></li>
+                {% endif%}
+                {% if posts.has_next%}
+                <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+                {% endif%}
+            </ul></center>
+        </section>
+    </section>
+</div>
+</body>
+
+</html>
+{% endblock content %}
