@@ -15,7 +15,7 @@
  
     <style>
         .post-img {
-            height: 55vh;
+            height: 45vh;
             max-width: 100%;
             
 
@@ -70,7 +70,7 @@
 
 <body>
         <center><div class="imgC">
-            <img class="img-fluid" src="/media/{{post.image}}" alt="Card image cap" class="rounded mx-auto d-block"  >
+            <img class="post-img rounded" src="/media/{{post.image}}" alt="Card image cap" class="rounded mx-auto d-block"  >
         </div></center>
         <div class="post-body">
             <p class="post-text">{{post.content | safe}}</p>
