@@ -16,9 +16,9 @@
     <style>
         .post-img {
             height: 45vh;
-            max-width: 100%;
-            
-
+            width: 100%;
+            object-fit:cover;
+            border-radius:5px;
         }
         .post-body{
             padding: 25px;
@@ -70,7 +70,7 @@
 
 <body>
 <div class="container p-3">
-        <center><div class="imgC rounded">
+        <center><div class="imgC">
             <img class="post-img " src="/media/{{post.image}}" alt="Card image cap" class="rounded mx-auto d-block"  >
         </div></center>
         <div class="post-body">
