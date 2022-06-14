@@ -17,7 +17,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 20px 100px;
+	/* padding: 20px 100px; */
+	padding: 0;
 }
 
 .container:after {
@@ -105,5 +106,7 @@ textarea {
 
 	.left {
 		height: 200px;
+		border-bottom-left-radius: 0;
+		border-top-right-radius: 25px;
 	}
 }
